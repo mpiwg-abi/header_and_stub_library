@@ -695,8 +695,8 @@ int PMPI_Win_test(MPI_Win win, int *flag){ abort(); return 0; }
 int PMPI_Win_unlock(int rank, MPI_Win win){ abort(); return 0; }
 int PMPI_Win_unlock_all(MPI_Win win){ abort(); return 0; }
 int PMPI_Win_wait(MPI_Win win){ abort(); return 0; }
-double MPI_Wtick(){ abort(); return 0; }
-double MPI_Wtime(){ abort(); return 0; }
+double PMPI_Wtick(){ abort(); return 0; }
+double PMPI_Wtime(){ abort(); return 0; }
 int PMPI_Attr_delete(MPI_Comm comm, int keyval){ abort(); return 0; }
 int PMPI_Attr_get(MPI_Comm comm, int keyval, void *attribute_val, int *flag){ abort(); return 0; }
 int PMPI_Attr_put(MPI_Comm comm, int keyval, void *attribute_val){ abort(); return 0; }
