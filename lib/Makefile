@@ -1,18 +1,21 @@
-CC = cc
+CFLAGS = -Wall -Wextra -Wno-unused-parameter -pedantic
 CPPFLAGS = -I../include
-CFLAGS = -Wall $(CPPFLAGS)
 
-all: libmpiabi.a libmpiabi.so
+LN = ln -f
+LN_S = $(LN) -s
+RANLIB = ranlib
 
-libmpiabi.a: libmpiabi_stubs.o
-	ar -r $@ $^
+all: libmpi_abi.a libmpi_abi.so
 
-libmpiabi.so: libmpiabi_stubs.o
-	$(CC) -shared $^ -o $@
+libmpi_abi.a: mpistubs.o
+	$(AR) -r $@ $^
+	$(RANLIB) $@
 
-libmpiabi_stubs.o: libmpiabi_stubs.c
-	$(CC) $(CFLAGS) -c $^ -o $@
+libmpi_abi.so.0: mpistubs.o
+	$(LINK.c) -shared -Wl,-soname=$@ $^ -o $@
+
+libmpi_abi.so: libmpi_abi.so.0
+	$(LN_S) $< $@
 
 clean:
-	-rm -f libmpiabi.a libmpiabi.so libmpiabi_stubs.o
-
+	-$(RM) libmpi_abi.a libmpi_abi.so.0 libmpi_abi.so mpistubs.o
