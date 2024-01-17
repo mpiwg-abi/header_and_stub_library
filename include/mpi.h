@@ -322,6 +322,12 @@ enum {
     MPI_ORDER_C       = 0xC, // 12
     MPI_ORDER_FORTRAN = 0xF, // 15
 
+    // Array Datatype Distribution
+    MPI_DISTRIBUTE_NONE       = 16,
+    MPI_DISTRIBUTE_BLOCK      = 17,
+    MPI_DISTRIBUTE_CYCLIC     = 18,
+    MPI_DISTRIBUTE_DFLT_DARG  = 19,
+
     // RMA Lock Constants - arbitrary values
     MPI_LOCK_SHARED    = 21,
     MPI_LOCK_EXCLUSIVE = 22,
@@ -365,12 +371,6 @@ enum {
     MPI_COMBINER_F90_INTEGER        = 315,
     MPI_COMBINER_RESIZED            = 316,
     MPI_COMBINER_VALUE_INDEX        = 317,
-
-    // File Operation Constants (?)
-    MPI_DISTRIBUTE_NONE         = 404,
-    MPI_DISTRIBUTE_BLOCK        = 401,
-    MPI_DISTRIBUTE_CYCLIC       = 402,
-    MPI_DISTRIBUTE_DFLT_DARG    = 403,
 
     // File Position Constants
     MPI_SEEK_CUR                = 601,
