@@ -3,6 +3,10 @@
 
 #include <stdint.h>
 
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 #define MPI_VERSION    4
 #define MPI_SUBVERSION 2
 
@@ -1871,5 +1875,9 @@ int PMPI_T_pvar_write(MPI_T_pvar_session session, MPI_T_pvar_handle handle, cons
 int PMPI_T_source_get_info(int source_index, char *name, int *name_len, char *desc, int *desc_len, MPI_T_source_order *ordering, MPI_Count *ticks_per_second, MPI_Count *max_ticks, MPI_Info *info);
 int PMPI_T_source_get_num(int *num_sources);
 int PMPI_T_source_get_timestamp(int source_index, MPI_Count *timestamp);
+
+#if defined(__cplusplus)
+}
+#endif
 
 #endif  /* MPI_H_ABI */
