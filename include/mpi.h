@@ -93,8 +93,8 @@ typedef struct MPI_ABI_Datatype * MPI_Datatype;
 #define MPI_DOUBLE                     (MPI_Datatype)0x00000214
 #define MPI_C_DOUBLE_COMPLEX           (MPI_Datatype)0x00000216
 #define MPI_CXX_DOUBLE_COMPLEX         (MPI_Datatype)0x00000217
-#define MPI_INTEGER                    (MPI_Datatype)0x00000218
-#define MPI_LOGICAL                    (MPI_Datatype)0x00000219
+#define MPI_LOGICAL                    (MPI_Datatype)0x00000218
+#define MPI_INTEGER                    (MPI_Datatype)0x00000219
 #define MPI_REAL                       (MPI_Datatype)0x0000021a
 #define MPI_COMPLEX                    (MPI_Datatype)0x0000021b
 #define MPI_DOUBLE_PRECISION           (MPI_Datatype)0x0000021c
@@ -126,22 +126,23 @@ typedef struct MPI_ABI_Datatype * MPI_Datatype;
 #define MPI_UINT32_T                   (MPI_Datatype)0x00000251
 #define MPI_INT64_T                    (MPI_Datatype)0x00000258
 #define MPI_UINT64_T                   (MPI_Datatype)0x00000259
-#define MPI_INTEGER1                   (MPI_Datatype)0x000002c0
-#define MPIX_LOGICAL1                  (MPI_Datatype)0x000002c1
+#define MPIX_LOGICAL1                  (MPI_Datatype)0x000002c0
+#define MPI_INTEGER1                   (MPI_Datatype)0x000002c1
 #define MPIX_REAL1                     (MPI_Datatype)0x000002c2
 #define MPI_CHARACTER                  (MPI_Datatype)0x000002c3
-#define MPI_INTEGER2                   (MPI_Datatype)0x000002c8
-#define MPIX_LOGICAL2                  (MPI_Datatype)0x000002c9
-#define MPIX_REAL2                     (MPI_Datatype)0x000002ca
-#define MPI_INTEGER4                   (MPI_Datatype)0x000002d0
-#define MPIX_LOGICAL4                  (MPI_Datatype)0x000002d1
+#define MPIX_LOGICAL2                  (MPI_Datatype)0x000002c8
+#define MPI_INTEGER2                   (MPI_Datatype)0x000002c9
+#define MPI_REAL2                      (MPI_Datatype)0x000002ca
+#define MPIX_LOGICAL4                  (MPI_Datatype)0x000002d0
+#define MPI_INTEGER4                   (MPI_Datatype)0x000002d1
 #define MPI_REAL4                      (MPI_Datatype)0x000002d2
-#define MPIX_COMPLEX4                  (MPI_Datatype)0x000002d3
-#define MPI_INTEGER8                   (MPI_Datatype)0x000002d8
-#define MPIX_LOGICAL8                  (MPI_Datatype)0x000002d9
+#define MPI_COMPLEX4                   (MPI_Datatype)0x000002d3
+#define MPIX_LOGICAL8                  (MPI_Datatype)0x000002d8
+#define MPI_INTEGER8                   (MPI_Datatype)0x000002d9
 #define MPI_REAL8                      (MPI_Datatype)0x000002da
 #define MPI_COMPLEX8                   (MPI_Datatype)0x000002db
-#define MPI_INTEGER16                  (MPI_Datatype)0x000002e0
+#define MPIX_LOGICAL16                 (MPI_Datatype)0x000002e0
+#define MPI_INTEGER16                  (MPI_Datatype)0x000002e1
 #define MPI_REAL16                     (MPI_Datatype)0x000002e2
 #define MPI_COMPLEX16                  (MPI_Datatype)0x000002e3
 #define MPI_COMPLEX32                  (MPI_Datatype)0x000002eb
@@ -377,6 +378,11 @@ enum {
     MPI_SEEK_END                = 602,
     MPI_SEEK_SET                = 603,
 
+    // Fortran Datatype Matching Constants
+    MPIX_TYPECLASS_LOGICAL      = 801,
+    MPI_TYPECLASS_INTEGER       = 802,
+    MPI_TYPECLASS_REAL          = 803,
+    MPI_TYPECLASS_COMPLEX       = 804,
 
     // Communicator split type constants - arbitrary values
     MPI_COMM_TYPE_SHARED          = 1001,
