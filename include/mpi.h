@@ -251,8 +251,8 @@ enum {
 #define MPI_ERRCODES_IGNORE ((int*)0)
 #define MPI_STATUS_IGNORE   ((MPI_Status*)0)
 #define MPI_STATUSES_IGNORE ((MPI_Status*)0)
-#define MPI_UNWEIGHTED      ((int*)2)
-#define MPI_WEIGHTS_EMPTY   ((int*)3)
+#define MPI_UNWEIGHTED      ((int*)4)
+#define MPI_WEIGHTS_EMPTY   ((int*)5)
 
 // Other constants
 #define MPI_BSEND_OVERHEAD                   512 // MPICH=96, OMPI=128
