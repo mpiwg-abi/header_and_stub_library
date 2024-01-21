@@ -1002,7 +1002,6 @@ int MPI_Session_get_pset_info(MPI_Session session, const char *pset_name, MPI_In
 int MPI_Session_iflush_buffer(MPI_Session session, MPI_Request *request);
 int MPI_Session_init(MPI_Info info, MPI_Errhandler errhandler, MPI_Session *session);
 int MPI_Session_set_errhandler(MPI_Session session, MPI_Errhandler errhandler);
-int MPI_Sizeof(void *x, int *size);
 int MPI_Ssend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm);
 int MPI_Ssend_c(const void *buf, MPI_Count count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm);
 int MPI_Ssend_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm, MPI_Request *request);
@@ -1667,7 +1666,6 @@ int PMPI_Session_get_pset_info(MPI_Session session, const char *pset_name, MPI_I
 int PMPI_Session_iflush_buffer(MPI_Session session, MPI_Request *request);
 int PMPI_Session_init(MPI_Info info, MPI_Errhandler errhandler, MPI_Session *session);
 int PMPI_Session_set_errhandler(MPI_Session session, MPI_Errhandler errhandler);
-int PMPI_Sizeof(void *x, int *size);
 int PMPI_Ssend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm);
 int PMPI_Ssend_c(const void *buf, MPI_Count count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm);
 int PMPI_Ssend_init(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm, MPI_Request *request);
