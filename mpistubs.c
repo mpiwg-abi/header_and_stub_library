@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <mpi.h>
+#include "mpi.h"
 
 /* MPI global variables */
 MPI_Fint * MPI_F_STATUS_IGNORE = NULL;
