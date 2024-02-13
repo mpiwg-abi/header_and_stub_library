@@ -20,7 +20,7 @@ typedef struct {
     int MPI_SOURCE;
     int MPI_TAG;
     int MPI_ERROR;
-    int internal[5];
+    int MPI_internal[5];
 } MPI_Status;
 
 typedef struct MPI_ABI_Op * MPI_Op;
