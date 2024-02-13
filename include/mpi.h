@@ -24,132 +24,132 @@ typedef struct {
 } MPI_Status;
 
 typedef struct MPI_ABI_Op * MPI_Op;
-#define MPI_OP_NULL                    (MPI_Op)0x00000020
-#define MPI_SUM                        (MPI_Op)0x00000021
-#define MPI_MIN                        (MPI_Op)0x00000022
-#define MPI_MAX                        (MPI_Op)0x00000023
-#define MPI_PROD                       (MPI_Op)0x00000024
-#define MPI_BAND                       (MPI_Op)0x00000028
-#define MPI_BOR                        (MPI_Op)0x00000029
-#define MPI_BXOR                       (MPI_Op)0x0000002a
-#define MPI_LAND                       (MPI_Op)0x00000030
-#define MPI_LOR                        (MPI_Op)0x00000031
-#define MPI_LXOR                       (MPI_Op)0x00000032
-#define MPI_MINLOC                     (MPI_Op)0x00000038
-#define MPI_MAXLOC                     (MPI_Op)0x00000039
-#define MPI_REPLACE                    (MPI_Op)0x0000003c
-#define MPI_NO_OP                      (MPI_Op)0x0000003d
+#define MPI_OP_NULL                    ((MPI_Op)0x00000020)
+#define MPI_SUM                        ((MPI_Op)0x00000021)
+#define MPI_MIN                        ((MPI_Op)0x00000022)
+#define MPI_MAX                        ((MPI_Op)0x00000023)
+#define MPI_PROD                       ((MPI_Op)0x00000024)
+#define MPI_BAND                       ((MPI_Op)0x00000028)
+#define MPI_BOR                        ((MPI_Op)0x00000029)
+#define MPI_BXOR                       ((MPI_Op)0x0000002a)
+#define MPI_LAND                       ((MPI_Op)0x00000030)
+#define MPI_LOR                        ((MPI_Op)0x00000031)
+#define MPI_LXOR                       ((MPI_Op)0x00000032)
+#define MPI_MINLOC                     ((MPI_Op)0x00000038)
+#define MPI_MAXLOC                     ((MPI_Op)0x00000039)
+#define MPI_REPLACE                    ((MPI_Op)0x0000003c)
+#define MPI_NO_OP                      ((MPI_Op)0x0000003d)
 
 typedef struct MPI_ABI_Comm * MPI_Comm;
-#define MPI_COMM_NULL                  (MPI_Comm)0x00000100
-#define MPI_COMM_WORLD                 (MPI_Comm)0x00000101
-#define MPI_COMM_SELF                  (MPI_Comm)0x00000102
+#define MPI_COMM_NULL                  ((MPI_Comm)0x00000100)
+#define MPI_COMM_WORLD                 ((MPI_Comm)0x00000101)
+#define MPI_COMM_SELF                  ((MPI_Comm)0x00000102)
 
 typedef struct MPI_ABI_Group * MPI_Group;
-#define MPI_GROUP_NULL                 (MPI_Group)0x00000108
-#define MPI_GROUP_EMPTY                (MPI_Group)0x00000109
+#define MPI_GROUP_NULL                 ((MPI_Group)0x00000108)
+#define MPI_GROUP_EMPTY                ((MPI_Group)0x00000109)
 
 typedef struct MPI_ABI_Win * MPI_Win;
-#define MPI_WIN_NULL                   (MPI_Win)0x00000110
+#define MPI_WIN_NULL                   ((MPI_Win)0x00000110)
 
 typedef struct MPI_ABI_File * MPI_File;
-#define MPI_FILE_NULL                  (MPI_File)0x00000118
+#define MPI_FILE_NULL                  ((MPI_File)0x00000118)
 
 typedef struct MPI_ABI_Session * MPI_Session;
-#define MPI_SESSION_NULL               (MPI_Session)0x00000120
+#define MPI_SESSION_NULL               ((MPI_Session)0x00000120)
 
 typedef struct MPI_ABI_Message * MPI_Message;
-#define MPI_MESSAGE_NULL               (MPI_Message)0x00000128
-#define MPI_MESSAGE_NO_PROC            (MPI_Message)0x00000129
+#define MPI_MESSAGE_NULL               ((MPI_Message)0x00000128)
+#define MPI_MESSAGE_NO_PROC            ((MPI_Message)0x00000129)
 
 typedef struct MPI_ABI_Info * MPI_Info;
-#define MPI_INFO_NULL                  (MPI_Info)0x00000130
-#define MPI_INFO_ENV                   (MPI_Info)0x00000131
+#define MPI_INFO_NULL                  ((MPI_Info)0x00000130)
+#define MPI_INFO_ENV                   ((MPI_Info)0x00000131)
 
 typedef struct MPI_ABI_Errhandler * MPI_Errhandler;
-#define MPI_ERRHANDLER_NULL            (MPI_Errhandler)0x00000140
-#define MPI_ERRORS_ARE_FATAL           (MPI_Errhandler)0x00000141
-#define MPI_ERRORS_RETURN              (MPI_Errhandler)0x00000142
-#define MPI_ERRORS_ABORT               (MPI_Errhandler)0x00000143
+#define MPI_ERRHANDLER_NULL            ((MPI_Errhandler)0x00000140)
+#define MPI_ERRORS_ARE_FATAL           ((MPI_Errhandler)0x00000141)
+#define MPI_ERRORS_RETURN              ((MPI_Errhandler)0x00000142)
+#define MPI_ERRORS_ABORT               ((MPI_Errhandler)0x00000143)
 
 typedef struct MPI_ABI_Request * MPI_Request;
-#define MPI_REQUEST_NULL               (MPI_Request)0x00000180
+#define MPI_REQUEST_NULL               ((MPI_Request)0x00000180)
 
 typedef struct MPI_ABI_Datatype * MPI_Datatype;
-#define MPI_DATATYPE_NULL              (MPI_Datatype)0x00000200
-#define MPI_AINT                       (MPI_Datatype)0x00000201
-#define MPI_COUNT                      (MPI_Datatype)0x00000202
-#define MPI_OFFSET                     (MPI_Datatype)0x00000203
-#define MPI_PACKED                     (MPI_Datatype)0x00000207
-#define MPI_SHORT                      (MPI_Datatype)0x00000208
-#define MPI_INT                        (MPI_Datatype)0x00000209
-#define MPI_LONG                       (MPI_Datatype)0x0000020a
-#define MPI_LONG_LONG                  (MPI_Datatype)0x0000020b
+#define MPI_DATATYPE_NULL              ((MPI_Datatype)0x00000200)
+#define MPI_AINT                       ((MPI_Datatype)0x00000201)
+#define MPI_COUNT                      ((MPI_Datatype)0x00000202)
+#define MPI_OFFSET                     ((MPI_Datatype)0x00000203)
+#define MPI_PACKED                     ((MPI_Datatype)0x00000207)
+#define MPI_SHORT                      ((MPI_Datatype)0x00000208)
+#define MPI_INT                        ((MPI_Datatype)0x00000209)
+#define MPI_LONG                       ((MPI_Datatype)0x0000020a)
+#define MPI_LONG_LONG                  ((MPI_Datatype)0x0000020b)
 #define MPI_LONG_LONG_INT              MPI_LONG_LONG
-#define MPI_UNSIGNED_SHORT             (MPI_Datatype)0x0000020c
-#define MPI_UNSIGNED                   (MPI_Datatype)0x0000020d
-#define MPI_UNSIGNED_LONG              (MPI_Datatype)0x0000020e
-#define MPI_UNSIGNED_LONG_LONG         (MPI_Datatype)0x0000020f
-#define MPI_FLOAT                      (MPI_Datatype)0x00000210
-#define MPI_C_FLOAT_COMPLEX            (MPI_Datatype)0x00000212
+#define MPI_UNSIGNED_SHORT             ((MPI_Datatype)0x0000020c)
+#define MPI_UNSIGNED                   ((MPI_Datatype)0x0000020d)
+#define MPI_UNSIGNED_LONG              ((MPI_Datatype)0x0000020e)
+#define MPI_UNSIGNED_LONG_LONG         ((MPI_Datatype)0x0000020f)
+#define MPI_FLOAT                      ((MPI_Datatype)0x00000210)
+#define MPI_C_FLOAT_COMPLEX            ((MPI_Datatype)0x00000212)
 #define MPI_C_COMPLEX                  MPI_C_FLOAT_COMPLEX
-#define MPI_CXX_FLOAT_COMPLEX          (MPI_Datatype)0x00000213
-#define MPI_DOUBLE                     (MPI_Datatype)0x00000214
-#define MPI_C_DOUBLE_COMPLEX           (MPI_Datatype)0x00000216
-#define MPI_CXX_DOUBLE_COMPLEX         (MPI_Datatype)0x00000217
-#define MPI_LOGICAL                    (MPI_Datatype)0x00000218
-#define MPI_INTEGER                    (MPI_Datatype)0x00000219
-#define MPI_REAL                       (MPI_Datatype)0x0000021a
-#define MPI_COMPLEX                    (MPI_Datatype)0x0000021b
-#define MPI_DOUBLE_PRECISION           (MPI_Datatype)0x0000021c
-#define MPI_DOUBLE_COMPLEX             (MPI_Datatype)0x0000021d
-#define MPI_LONG_DOUBLE                (MPI_Datatype)0x00000220
-#define MPI_C_LONG_DOUBLE_COMPLEX      (MPI_Datatype)0x00000224
-#define MPI_CXX_LONG_DOUBLE_COMPLEX    (MPI_Datatype)0x00000225
-#define MPI_FLOAT_INT                  (MPI_Datatype)0x00000228
-#define MPI_DOUBLE_INT                 (MPI_Datatype)0x00000229
-#define MPI_LONG_INT                   (MPI_Datatype)0x0000022a
-#define MPI_2INT                       (MPI_Datatype)0x0000022b
-#define MPI_SHORT_INT                  (MPI_Datatype)0x0000022c
-#define MPI_LONG_DOUBLE_INT            (MPI_Datatype)0x0000022d
-#define MPI_2REAL                      (MPI_Datatype)0x00000230
-#define MPI_2DOUBLE_PRECISION          (MPI_Datatype)0x00000231
-#define MPI_2INTEGER                   (MPI_Datatype)0x00000232
-#define MPI_C_BOOL                     (MPI_Datatype)0x00000238
-#define MPI_CXX_BOOL                   (MPI_Datatype)0x00000239
-#define MPI_WCHAR                      (MPI_Datatype)0x0000023c
-#define MPI_INT8_T                     (MPI_Datatype)0x00000240
-#define MPI_UINT8_T                    (MPI_Datatype)0x00000241
-#define MPI_CHAR                       (MPI_Datatype)0x00000243
-#define MPI_SIGNED_CHAR                (MPI_Datatype)0x00000244
-#define MPI_UNSIGNED_CHAR              (MPI_Datatype)0x00000245
-#define MPI_BYTE                       (MPI_Datatype)0x00000247
-#define MPI_INT16_T                    (MPI_Datatype)0x00000248
-#define MPI_UINT16_T                   (MPI_Datatype)0x00000249
-#define MPI_INT32_T                    (MPI_Datatype)0x00000250
-#define MPI_UINT32_T                   (MPI_Datatype)0x00000251
-#define MPI_INT64_T                    (MPI_Datatype)0x00000258
-#define MPI_UINT64_T                   (MPI_Datatype)0x00000259
-#define MPIX_LOGICAL1                  (MPI_Datatype)0x000002c0
-#define MPI_INTEGER1                   (MPI_Datatype)0x000002c1
-#define MPIX_REAL1                     (MPI_Datatype)0x000002c2
-#define MPI_CHARACTER                  (MPI_Datatype)0x000002c3
-#define MPIX_LOGICAL2                  (MPI_Datatype)0x000002c8
-#define MPI_INTEGER2                   (MPI_Datatype)0x000002c9
-#define MPI_REAL2                      (MPI_Datatype)0x000002ca
-#define MPIX_LOGICAL4                  (MPI_Datatype)0x000002d0
-#define MPI_INTEGER4                   (MPI_Datatype)0x000002d1
-#define MPI_REAL4                      (MPI_Datatype)0x000002d2
-#define MPI_COMPLEX4                   (MPI_Datatype)0x000002d3
-#define MPIX_LOGICAL8                  (MPI_Datatype)0x000002d8
-#define MPI_INTEGER8                   (MPI_Datatype)0x000002d9
-#define MPI_REAL8                      (MPI_Datatype)0x000002da
-#define MPI_COMPLEX8                   (MPI_Datatype)0x000002db
-#define MPIX_LOGICAL16                 (MPI_Datatype)0x000002e0
-#define MPI_INTEGER16                  (MPI_Datatype)0x000002e1
-#define MPI_REAL16                     (MPI_Datatype)0x000002e2
-#define MPI_COMPLEX16                  (MPI_Datatype)0x000002e3
-#define MPI_COMPLEX32                  (MPI_Datatype)0x000002eb
+#define MPI_CXX_FLOAT_COMPLEX          ((MPI_Datatype)0x00000213)
+#define MPI_DOUBLE                     ((MPI_Datatype)0x00000214)
+#define MPI_C_DOUBLE_COMPLEX           ((MPI_Datatype)0x00000216)
+#define MPI_CXX_DOUBLE_COMPLEX         ((MPI_Datatype)0x00000217)
+#define MPI_LOGICAL                    ((MPI_Datatype)0x00000218)
+#define MPI_INTEGER                    ((MPI_Datatype)0x00000219)
+#define MPI_REAL                       ((MPI_Datatype)0x0000021a)
+#define MPI_COMPLEX                    ((MPI_Datatype)0x0000021b)
+#define MPI_DOUBLE_PRECISION           ((MPI_Datatype)0x0000021c)
+#define MPI_DOUBLE_COMPLEX             ((MPI_Datatype)0x0000021d)
+#define MPI_LONG_DOUBLE                ((MPI_Datatype)0x00000220)
+#define MPI_C_LONG_DOUBLE_COMPLEX      ((MPI_Datatype)0x00000224)
+#define MPI_CXX_LONG_DOUBLE_COMPLEX    ((MPI_Datatype)0x00000225)
+#define MPI_FLOAT_INT                  ((MPI_Datatype)0x00000228)
+#define MPI_DOUBLE_INT                 ((MPI_Datatype)0x00000229)
+#define MPI_LONG_INT                   ((MPI_Datatype)0x0000022a)
+#define MPI_2INT                       ((MPI_Datatype)0x0000022b)
+#define MPI_SHORT_INT                  ((MPI_Datatype)0x0000022c)
+#define MPI_LONG_DOUBLE_INT            ((MPI_Datatype)0x0000022d)
+#define MPI_2REAL                      ((MPI_Datatype)0x00000230)
+#define MPI_2DOUBLE_PRECISION          ((MPI_Datatype)0x00000231)
+#define MPI_2INTEGER                   ((MPI_Datatype)0x00000232)
+#define MPI_C_BOOL                     ((MPI_Datatype)0x00000238)
+#define MPI_CXX_BOOL                   ((MPI_Datatype)0x00000239)
+#define MPI_WCHAR                      ((MPI_Datatype)0x0000023c)
+#define MPI_INT8_T                     ((MPI_Datatype)0x00000240)
+#define MPI_UINT8_T                    ((MPI_Datatype)0x00000241)
+#define MPI_CHAR                       ((MPI_Datatype)0x00000243)
+#define MPI_SIGNED_CHAR                ((MPI_Datatype)0x00000244)
+#define MPI_UNSIGNED_CHAR              ((MPI_Datatype)0x00000245)
+#define MPI_BYTE                       ((MPI_Datatype)0x00000247)
+#define MPI_INT16_T                    ((MPI_Datatype)0x00000248)
+#define MPI_UINT16_T                   ((MPI_Datatype)0x00000249)
+#define MPI_INT32_T                    ((MPI_Datatype)0x00000250)
+#define MPI_UINT32_T                   ((MPI_Datatype)0x00000251)
+#define MPI_INT64_T                    ((MPI_Datatype)0x00000258)
+#define MPI_UINT64_T                   ((MPI_Datatype)0x00000259)
+#define MPIX_LOGICAL1                  ((MPI_Datatype)0x000002c0)
+#define MPI_INTEGER1                   ((MPI_Datatype)0x000002c1)
+#define MPIX_REAL1                     ((MPI_Datatype)0x000002c2)
+#define MPI_CHARACTER                  ((MPI_Datatype)0x000002c3)
+#define MPIX_LOGICAL2                  ((MPI_Datatype)0x000002c8)
+#define MPI_INTEGER2                   ((MPI_Datatype)0x000002c9)
+#define MPI_REAL2                      ((MPI_Datatype)0x000002ca)
+#define MPIX_LOGICAL4                  ((MPI_Datatype)0x000002d0)
+#define MPI_INTEGER4                   ((MPI_Datatype)0x000002d1)
+#define MPI_REAL4                      ((MPI_Datatype)0x000002d2)
+#define MPI_COMPLEX4                   ((MPI_Datatype)0x000002d3)
+#define MPIX_LOGICAL8                  ((MPI_Datatype)0x000002d8)
+#define MPI_INTEGER8                   ((MPI_Datatype)0x000002d9)
+#define MPI_REAL8                      ((MPI_Datatype)0x000002da)
+#define MPI_COMPLEX8                   ((MPI_Datatype)0x000002db)
+#define MPIX_LOGICAL16                 ((MPI_Datatype)0x000002e0)
+#define MPI_INTEGER16                  ((MPI_Datatype)0x000002e1)
+#define MPI_REAL16                     ((MPI_Datatype)0x000002e2)
+#define MPI_COMPLEX16                  ((MPI_Datatype)0x000002e3)
+#define MPI_COMPLEX32                  ((MPI_Datatype)0x000002eb)
 
 enum {
     // Status indexing - must match MPI_Status definition
@@ -480,11 +480,11 @@ typedef enum MPI_T_source_order {
     MPI_T_SOURCE_UNORDERED
 } MPI_T_source_order;
 
-#define MPI_T_ENUM_NULL (MPI_T_enum)0
-#define MPI_T_CVAR_HANDLE_NULL (MPI_T_cvar_handle)0
-#define MPI_T_PVAR_SESSION_NULL (MPI_T_pvar_session)0
-#define MPI_T_PVAR_HANDLE_NULL (MPI_T_pvar_handle)0
-#define MPI_T_PVAR_ALL_HANDLES (MPI_T_pvar_handle)1
+#define MPI_T_ENUM_NULL         ((MPI_T_enum)0)
+#define MPI_T_CVAR_HANDLE_NULL  ((MPI_T_cvar_handle)0)
+#define MPI_T_PVAR_SESSION_NULL ((MPI_T_pvar_session)0)
+#define MPI_T_PVAR_HANDLE_NULL  ((MPI_T_pvar_handle)0)
+#define MPI_T_PVAR_ALL_HANDLES  ((MPI_T_pvar_handle)1)
 
 enum {
     MPI_T_VERBOSITY_USER_BASIC,
