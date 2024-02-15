@@ -1,0 +1,68 @@
+name: ci
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
+
+permissions:
+  contents: read
+
+jobs:
+
+
+  cmake:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-22.04
+          - ubuntu-20.04
+          - macos-14
+          - macos-13
+    steps:
+    - uses: actions/checkout@v4
+    - run:  bash -x build-cmake.sh
+    - run:  bash check.sh
+
+  meson:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-22.04
+          - ubuntu-20.04
+          - macos-14
+          - macos-13
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with: {python-version: '3.x'}
+    - run:  python -m pip install meson ninja
+    - run:  bash -x build-meson.sh
+    - run:  bash check.sh
+
+  make:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-22.04
+          - ubuntu-20.04
+          - macos-14
+          - macos-13
+    steps:
+    - uses: actions/checkout@v4
+    - run:  make
+    - run:  bash check.sh
