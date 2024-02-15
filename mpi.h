@@ -318,7 +318,7 @@ enum {
     // Environmental inquiry keys and Predefined Attribute Keys
     // Threads Constants
     // These values are monotonic; i.e., SINGLE < FUNNELED < SERIALIZED < MULTIPLE.
-    MPI_THREAD_SINGLE     = 0, 
+    MPI_THREAD_SINGLE     = 0,
     MPI_THREAD_FUNNELED   = 1,
     MPI_THREAD_SERIALIZED = 2,
     MPI_THREAD_MULTIPLE   = 7, // in case we need other threading levels below MULTIPLE
