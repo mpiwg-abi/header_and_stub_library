@@ -4,6 +4,8 @@
 /* MPI global variables */
 MPI_Fint * MPI_F_STATUS_IGNORE = NULL;
 MPI_Fint * MPI_F_STATUSES_IGNORE = NULL;
+MPI_F08_status * MPI_F08_STATUS_IGNORE = NULL;
+MPI_F08_status * MPI_F08_STATUSES_IGNORE = NULL;
 
 /* MPI functions */
 int MPI_Abort(MPI_Comm comm, int errorcode) { abort(); return 0; }
@@ -593,6 +595,10 @@ double MPI_Wtime(void) { abort(); return 0; }
 
 int MPI_Status_c2f(const MPI_Status *c_status, MPI_Fint *f_status) { abort(); return 0; }
 int MPI_Status_f2c(const MPI_Fint *f_status, MPI_Status *c_status) { abort(); return 0; }
+int MPI_Status_c2f08(const MPI_Status *c_status, MPI_F08_status *f08_status) { abort(); return 0; }
+int MPI_Status_f082c(const MPI_F08_status *f08_status, MPI_Status *c_status) { abort(); return 0; }
+int MPI_Status_f2f08(const MPI_Fint *f_status, MPI_F08_status *f08_status) { abort(); return 0; }
+int MPI_Status_f082f(const MPI_F08_status *f08_status, MPI_Fint *f_status) { abort(); return 0; }
 MPI_Fint MPI_Comm_c2f(MPI_Comm comm) { abort(); return 0; }
 MPI_Comm MPI_Comm_f2c(MPI_Fint comm) { abort(); return 0; }
 MPI_Fint MPI_Errhandler_c2f(MPI_Errhandler errhandler) { abort(); return 0; }
@@ -1257,6 +1263,10 @@ double PMPI_Wtime(void) { abort(); return 0; }
 
 int PMPI_Status_c2f(const MPI_Status *c_status, MPI_Fint *f_status) { abort(); return 0; }
 int PMPI_Status_f2c(const MPI_Fint *f_status, MPI_Status *c_status) { abort(); return 0; }
+int PMPI_Status_c2f08(const MPI_Status *c_status, MPI_F08_status *f08_status) { abort(); return 0; }
+int PMPI_Status_f082c(const MPI_F08_status *f08_status, MPI_Status *c_status) { abort(); return 0; }
+int PMPI_Status_f2f08(const MPI_Fint *f_status, MPI_F08_status *f08_status) { abort(); return 0; }
+int PMPI_Status_f082f(const MPI_F08_status *f08_status, MPI_Fint *f_status) { abort(); return 0; }
 MPI_Fint PMPI_Comm_c2f(MPI_Comm comm) { abort(); return 0; }
 MPI_Comm PMPI_Comm_f2c(MPI_Fint comm) { abort(); return 0; }
 MPI_Fint PMPI_Errhandler_c2f(MPI_Errhandler errhandler) { abort(); return 0; }

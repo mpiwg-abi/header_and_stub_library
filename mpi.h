@@ -160,6 +160,10 @@ enum {
     MPI_F_STATUS_SIZE   = 8
 };
 
+typedef struct {
+  MPI_Fint mpi_val[MPI_F_STATUS_SIZE];
+} MPI_F08_status;
+
 // Error classes
 enum {
     MPI_SUCCESS                         = 0,
@@ -543,6 +547,8 @@ typedef void (MPI_T_event_dropped_cb_function)(MPI_Count count, MPI_T_event_regi
 /* MPI global variables */
 extern MPI_Fint * MPI_F_STATUS_IGNORE;
 extern MPI_Fint * MPI_F_STATUSES_IGNORE;
+extern MPI_F08_status * MPI_F08_STATUS_IGNORE;
+extern MPI_F08_status * MPI_F08_STATUSES_IGNORE;
 
 /* MPI functions */
 int MPI_Abort(MPI_Comm comm, int errorcode);
@@ -1132,6 +1138,10 @@ double MPI_Wtime(void);
 
 int MPI_Status_c2f(const MPI_Status *c_status, MPI_Fint *f_status);
 int MPI_Status_f2c(const MPI_Fint *f_status, MPI_Status *c_status);
+int MPI_Status_c2f08(const MPI_Status *c_status, MPI_F08_status *f08_status);
+int MPI_Status_f082c(const MPI_F08_status *f08_status, MPI_Status *c_status);
+int MPI_Status_f2f08(const MPI_Fint *f_status, MPI_F08_status *f08_status);
+int MPI_Status_f082f(const MPI_F08_status *f08_status, MPI_Fint *f_status);
 MPI_Fint MPI_Comm_c2f(MPI_Comm comm);
 MPI_Comm MPI_Comm_f2c(MPI_Fint comm);
 MPI_Fint MPI_Errhandler_c2f(MPI_Errhandler errhandler);
@@ -1796,6 +1806,10 @@ double PMPI_Wtime(void);
 
 int PMPI_Status_c2f(const MPI_Status *c_status, MPI_Fint *f_status);
 int PMPI_Status_f2c(const MPI_Fint *f_status, MPI_Status *c_status);
+int PMPI_Status_c2f08(const MPI_Status *c_status, MPI_F08_status *f08_status);
+int PMPI_Status_f082c(const MPI_F08_status *f08_status, MPI_Status *c_status);
+int PMPI_Status_f2f08(const MPI_Fint *f_status, MPI_F08_status *f08_status);
+int PMPI_Status_f082f(const MPI_F08_status *f08_status, MPI_Fint *f_status);
 MPI_Fint PMPI_Comm_c2f(MPI_Comm comm);
 MPI_Comm PMPI_Comm_f2c(MPI_Fint comm);
 MPI_Fint PMPI_Errhandler_c2f(MPI_Errhandler errhandler);
