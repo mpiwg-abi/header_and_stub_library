@@ -1,0 +1,107 @@
+name: mpi4py
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
+
+permissions:
+  contents: read
+
+jobs:
+
+  mpi4py:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout mpi-stubs
+      uses: actions/checkout@v4
+      with:
+        path: mpi-stubs
+
+    - name: Install mpi-stubs
+      run: make -C mpi-stubs
+
+    - run: |
+        mpi_stubs=${{ github.workspace }}/mpi-stubs
+        echo $mpi_stubs/bin >> $GITHUB_PATH
+        echo LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$mpi_stubs/lib >> $GITHUB_ENV
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3
+
+    - name: Checkout mpi4py
+      uses: actions/checkout@v4
+      with:
+        repository: mpi4py/mpi4py
+        path: mpi4py
+
+    - name: Install mpi4py
+      run: python -m pip install ./mpi4py
+      env:
+        CPPFLAGS: "-DMPI_ABI=1"
+        CFLAGS: "-O0"
+
+    - name: Check mpi4py symbols
+      run: |
+        module=$(python -m mpi4py --prefix)/MPI.*.so
+        nci=$(nm $module | awk '/ PyMPI_.*_c$/' | wc -l)
+        ncx=$(nm $module | awk '/ MPI_.*_x$/' | wc -l)
+        ncc=$(nm $module | awk '/ MPI_.*_c$/' | wc -l)
+        test $nci -eq 0
+        test $ncx -eq 0
+        test $ncc -ge 159
+
+    - name: Test mpi4py module
+      shell: python {0}
+      run: |
+        # load-python-module
+        import importlib.util as imp
+        spec = imp.find_spec("mpi4py.MPI")
+        module = imp.module_from_spec(spec)
+        print(module)
+
+    - name: Configure mpi4py (small-count)
+      run: |
+        config=mpi4py/src/lib-mpi/config.h
+        echo "#undef MPI_VERSION"       >> config.h
+        echo "#undef MPI_SUBVERSION"    >> config.h
+        echo "#define MPI_VERSION 3"    >> config.h
+        echo "#define MPI_SUBVERSION 1" >> config.h
+        cat mpi4py/src/lib-mpi/config.h >> config.h
+        mv config.h mpi4py/src/lib-mpi/config.h
+
+    - name: Install mpi4py (small-count)
+      run: python -m pip install ./mpi4py
+      env:
+        CPPFLAGS: "-DMPI_ABI=1"
+        CFLAGS: "-O0"
+
+    - name: Check mpi4py symbols (small-count)
+      run: |
+        module=$(python -m mpi4py --prefix)/MPI.*.so
+        nci=$(nm $module | awk '/ PyMPI_.*_c$/' | wc -l)
+        ncx=$(nm $module | awk '/ MPI_.*_x$/' | wc -l)
+        ncc=$(nm $module | awk '/ MPI_.*_c$/' | wc -l)
+        test $nci -ge 149
+        test $ncx -eq 5
+        test $ncc -eq 0
+
+    - name: Test mpi4py module (small-count)
+      shell: python {0}
+      run: |
+        # load-python-module
+        import importlib.util as imp
+        spec = imp.find_spec("mpi4py.MPI")
+        module = imp.module_from_spec(spec)
+        print(module)
