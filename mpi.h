@@ -10,11 +10,38 @@ extern "C" {
 #define MPI_VERSION    4
 #define MPI_SUBVERSION 2
 
-typedef intptr_t MPI_Aint;
-typedef int64_t  MPI_Offset;
-typedef int64_t  MPI_Count;
+/* MPI_Aint is defined to be intptr_t (or equivalent to it, if compiler support is absent).
+ * The only acceptable alternative to intptr_t is the C89 type equivalent to it. */
+#if !defined(MPI_ABI_Aint)
+#define MPI_ABI_Aint intptr_t
+#endif
+typedef MPI_ABI_Aint MPI_Aint;
+#undef  MPI_ABI_Aint
 
-typedef int MPI_Fint;
+/* MPI_Offset will be 64b on all relevant systems, although we permit support for
+ * 128b offsets in cases where the underlying filesystem is 128b and MPI implementations
+ * support that directly. */
+#if !defined(MPI_ABI_Offset)
+#define MPI_ABI_Offset int64_t
+#endif
+typedef MPI_ABI_Offset MPI_Offset;
+#undef  MPI_ABI_Offset
+
+/* MPI_Count must be large enough to hold the larger of MPI_Aint and MPI_Offset.
+ * Platforms where MPI_Aint is larger than MPI_Offset are extremely rare. */
+#if !defined(MPI_ABI_Count)
+#define MPI_ABI_Count MPI_Offset
+#endif
+typedef MPI_ABI_Count MPI_Count;
+#undef  MPI_ABI_Count
+
+/* MPI_Fint must match the Fortran default INTEGER kind.
+ * It is often equivalent to C int but most compilers support wider options. */
+#if !defined(MPI_ABI_Fint)
+#define MPI_ABI_Fint int
+#endif
+typedef MPI_ABI_Fint MPI_Fint;
+#undef  MPI_ABI_Fint
 
 typedef struct {
     int MPI_SOURCE;
