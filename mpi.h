@@ -385,9 +385,9 @@ enum {
     MPI_UNEQUAL     = 104,
 
     // MPI_Topo_test
-    MPI_GRAPH      = 201,
+    MPI_CART       = 201,
     MPI_DIST_GRAPH = 202,
-    MPI_CART       = 203,
+    MPI_GRAPH      = 203,
 
     // Datatype Decoding Constants
     MPI_COMBINER_NAMED              = 301,
