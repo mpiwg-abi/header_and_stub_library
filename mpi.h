@@ -278,8 +278,8 @@ enum {
 
 // Buffer Address Constants
 #define MPI_BOTTOM           ((void*)0)
-#define MPI_IN_PLACE         ((void*)1)
-#define MPI_BUFFER_AUTOMATIC ((void*)2)
+#define MPI_BUFFER_AUTOMATIC ((void*)1)
+#define MPI_IN_PLACE         ((void*)2)
 
 // Constants Specifying Empty or Ignored Input
 #define MPI_ARGV_NULL       ((char**)0)
