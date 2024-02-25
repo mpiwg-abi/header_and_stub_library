@@ -188,7 +188,10 @@ enum {
 };
 
 typedef struct {
-  MPI_Fint mpi_val[MPI_F_STATUS_SIZE];
+  MPI_Fint MPI_SOURCE;
+  MPI_Fint MPI_TAG;
+  MPI_Fint MPI_ERROR;
+  MPI_Fint MPI_internal[5];
 } MPI_F08_status;
 
 // Error classes
