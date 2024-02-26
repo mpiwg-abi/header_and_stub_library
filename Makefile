@@ -23,14 +23,15 @@ RANLIB = ranlib
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
   SED_I = sed -i
-  LIBFILE = lib$(LIBNAME).so.$(VERSION)
+  libfilename = lib$1.so.$2
   soname = -Wl,-soname,$1
 endif
 ifeq ($(UNAME_S),Darwin)
   SED_I = sed -i''
-  LIBFILE = lib$(LIBNAME).$(VERSION).dylib
+  libfilename = lib$1.$2.dylib
   soname = -Wl,-install_name,@rpath/$1
 endif
+LIBFILE = $(call libfilename,$(LIBNAME),$(VERSION))
 LIBLINK = $(subst .$(VERSION),,$(LIBFILE))
 
 ifndef CFLAGS
