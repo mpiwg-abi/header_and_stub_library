@@ -446,32 +446,30 @@ enum {
     MPI_WIN_MODEL           = 20005
 };
 
+typedef void (MPI_User_function)(void *invec, void *inoutvec, int *len, MPI_Datatype *datatype);
+typedef void (MPI_User_function_c)(void *invec, void *inoutvec, MPI_Count *len, MPI_Datatype *datatype);
 
-typedef int (MPI_Copy_function)(MPI_Comm, int, void *, void *, void *, int *);
-typedef int (MPI_Delete_function)(MPI_Comm, int, void *, void *);
+typedef int (MPI_Grequest_query_function)(void *extra_state, MPI_Status *status);
+typedef int (MPI_Grequest_free_function)(void *extra_state);
+typedef int (MPI_Grequest_cancel_function)(void *extra_state, int complete);
 
-typedef void (MPI_User_function)(void *, void *, int *, MPI_Datatype *);
-typedef void (MPI_User_function_c)(void *, void *, MPI_Count *, MPI_Datatype *);
+typedef int (MPI_Copy_function)(MPI_Comm comm, int keyval, void *extra_state, void *attribute_val_in, void *attribute_val_out, int *flag);
+typedef int (MPI_Delete_function)(MPI_Comm omm, int keyval, void *attribute_val, void *extra_state);
+typedef int (MPI_Comm_copy_attr_function)(MPI_Comm comm, int keyval, void *extra_state, void *attribute_val_in, void *attribute_val_out, int *flag);
+typedef int (MPI_Comm_delete_attr_function)(MPI_Comm comm, int keyval, void *attribute_val, void *extra_state);
+typedef int (MPI_Type_copy_attr_function)(MPI_Datatype datatype, int keyval, void *extra_state, void *attribute_val_in, void *attribute_val_out, int *flag);
+typedef int (MPI_Type_delete_attr_function)(MPI_Datatype datatype, int keyval, void *attribute_val, void *extra_state);
+typedef int (MPI_Win_copy_attr_function)(MPI_Win win, int keyval, void *extra_state, void *attribute_val_in, void *attribute_val_out, int *flag);
+typedef int (MPI_Win_delete_attr_function)(MPI_Win win, int keyval, void *attribute_val, void *extra_state);
 
-typedef int (MPI_Grequest_cancel_function)(void *, int);
-typedef int (MPI_Grequest_free_function)(void *);
-typedef int (MPI_Grequest_query_function)(void *, MPI_Status *);
+typedef int (MPI_Datarep_extent_function)(MPI_Datatype datatype, MPI_Aint *extent, void *extra_state);
+typedef int (MPI_Datarep_conversion_function)(void *userbuf, MPI_Datatype datatype, int count, void *filebuf, MPI_Offset position, void *extra_state);
+typedef int (MPI_Datarep_conversion_function_c)(void *userbuf, MPI_Datatype datatype, MPI_Count count, void *filebuf, MPI_Offset position, void *extra_state);
 
-typedef int (MPI_Datarep_conversion_function)(void *, MPI_Datatype, int, void *, MPI_Offset, void *);
-typedef int (MPI_Datarep_extent_function)(MPI_Datatype datatype, MPI_Aint *, void *);
-typedef int (MPI_Datarep_conversion_function_c)(void *, MPI_Datatype, MPI_Count, void *, MPI_Offset, void *);
-
-typedef int (MPI_Comm_copy_attr_function)(MPI_Comm, int, void *, void *, void *, int *);
-typedef int (MPI_Comm_delete_attr_function)(MPI_Comm, int, void *, void *);
-typedef int (MPI_Type_copy_attr_function)(MPI_Datatype, int, void *, void *, void *, int *);
-typedef int (MPI_Type_delete_attr_function)(MPI_Datatype, int, void *, void *);
-typedef int (MPI_Win_copy_attr_function)(MPI_Win, int, void *, void *, void *, int *);
-typedef int (MPI_Win_delete_attr_function)(MPI_Win, int, void *, void *);
-
-typedef void (MPI_Comm_errhandler_function)(MPI_Comm *, int *, ...);
-typedef void (MPI_File_errhandler_function)(MPI_File *, int *, ...);
-typedef void (MPI_Win_errhandler_function)(MPI_Win *, int *, ...);
-typedef void (MPI_Session_errhandler_function)(MPI_Session *, int *, ...);
+typedef void (MPI_Comm_errhandler_function)(MPI_Comm *comm, int *error_code, ...);
+typedef void (MPI_File_errhandler_function)(MPI_File *file, int *error_code, ...);
+typedef void (MPI_Win_errhandler_function)(MPI_Win *win, int *error_code, ...);
+typedef void (MPI_Session_errhandler_function)(MPI_Session *session, int *error_code, ...);
 
 typedef MPI_Comm_errhandler_function MPI_Comm_errhandler_fn;
 typedef MPI_File_errhandler_function MPI_File_errhandler_fn;
