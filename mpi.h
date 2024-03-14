@@ -50,7 +50,7 @@ typedef struct {
     int MPI_internal[5];
 } MPI_Status;
 
-typedef struct MPI_ABI_Op * MPI_Op;
+typedef struct MPI_ABI_Op* MPI_Op;
 #define MPI_OP_NULL                    ((MPI_Op)0x00000020)
 #define MPI_SUM                        ((MPI_Op)0x00000021)
 #define MPI_MIN                        ((MPI_Op)0x00000022)
@@ -67,42 +67,42 @@ typedef struct MPI_ABI_Op * MPI_Op;
 #define MPI_REPLACE                    ((MPI_Op)0x0000003c)
 #define MPI_NO_OP                      ((MPI_Op)0x0000003d)
 
-typedef struct MPI_ABI_Comm * MPI_Comm;
+typedef struct MPI_ABI_Comm* MPI_Comm;
 #define MPI_COMM_NULL                  ((MPI_Comm)0x00000100)
 #define MPI_COMM_WORLD                 ((MPI_Comm)0x00000101)
 #define MPI_COMM_SELF                  ((MPI_Comm)0x00000102)
 
-typedef struct MPI_ABI_Group * MPI_Group;
+typedef struct MPI_ABI_Group* MPI_Group;
 #define MPI_GROUP_NULL                 ((MPI_Group)0x00000108)
 #define MPI_GROUP_EMPTY                ((MPI_Group)0x00000109)
 
-typedef struct MPI_ABI_Win * MPI_Win;
+typedef struct MPI_ABI_Win* MPI_Win;
 #define MPI_WIN_NULL                   ((MPI_Win)0x00000110)
 
-typedef struct MPI_ABI_File * MPI_File;
+typedef struct MPI_ABI_File* MPI_File;
 #define MPI_FILE_NULL                  ((MPI_File)0x00000118)
 
-typedef struct MPI_ABI_Session * MPI_Session;
+typedef struct MPI_ABI_Session* MPI_Session;
 #define MPI_SESSION_NULL               ((MPI_Session)0x00000120)
 
-typedef struct MPI_ABI_Message * MPI_Message;
+typedef struct MPI_ABI_Message* MPI_Message;
 #define MPI_MESSAGE_NULL               ((MPI_Message)0x00000128)
 #define MPI_MESSAGE_NO_PROC            ((MPI_Message)0x00000129)
 
-typedef struct MPI_ABI_Info * MPI_Info;
+typedef struct MPI_ABI_Info* MPI_Info;
 #define MPI_INFO_NULL                  ((MPI_Info)0x00000130)
 #define MPI_INFO_ENV                   ((MPI_Info)0x00000131)
 
-typedef struct MPI_ABI_Errhandler * MPI_Errhandler;
+typedef struct MPI_ABI_Errhandler* MPI_Errhandler;
 #define MPI_ERRHANDLER_NULL            ((MPI_Errhandler)0x00000140)
 #define MPI_ERRORS_ARE_FATAL           ((MPI_Errhandler)0x00000141)
 #define MPI_ERRORS_RETURN              ((MPI_Errhandler)0x00000142)
 #define MPI_ERRORS_ABORT               ((MPI_Errhandler)0x00000143)
 
-typedef struct MPI_ABI_Request * MPI_Request;
+typedef struct MPI_ABI_Request* MPI_Request;
 #define MPI_REQUEST_NULL               ((MPI_Request)0x00000180)
 
-typedef struct MPI_ABI_Datatype * MPI_Datatype;
+typedef struct MPI_ABI_Datatype* MPI_Datatype;
 #define MPI_DATATYPE_NULL              ((MPI_Datatype)0x00000200)
 #define MPI_AINT                       ((MPI_Datatype)0x00000201)
 #define MPI_COUNT                      ((MPI_Datatype)0x00000202)
@@ -493,14 +493,14 @@ typedef MPI_Session_errhandler_function MPI_Session_errhandler_fn;
 #define MPI_CONVERSION_FN_NULL   ((MPI_Datarep_conversion_function*)0x0)
 #define MPI_CONVERSION_FN_NULL_C ((MPI_Datarep_conversion_function_c*)0x0)
 
-/* MPI_T */
+/* MPI_T types and constants */
 
-typedef struct MPI_T_enum_t * MPI_T_enum;
-typedef struct MPI_T_cvar_handle_t * MPI_T_cvar_handle;
-typedef struct MPI_T_pvar_handle_t * MPI_T_pvar_handle;
-typedef struct MPI_T_pvar_session_t * MPI_T_pvar_session;
-typedef struct MPI_T_event_registration_t * MPI_T_event_registration;
-typedef struct MPI_T_event_instance_t * MPI_T_event_instance;
+typedef struct MPI_T_enum_t* MPI_T_enum;
+typedef struct MPI_T_cvar_handle_t* MPI_T_cvar_handle;
+typedef struct MPI_T_pvar_handle_t* MPI_T_pvar_handle;
+typedef struct MPI_T_pvar_session_t* MPI_T_pvar_session;
+typedef struct MPI_T_event_registration_t* MPI_T_event_registration;
+typedef struct MPI_T_event_instance_t* MPI_T_event_instance;
 
 typedef enum  MPI_T_cb_safety {
     MPI_T_CB_REQUIRE_NONE,
@@ -575,10 +575,10 @@ typedef void (MPI_T_event_free_cb_function)(MPI_T_event_registration event_regis
 typedef void (MPI_T_event_dropped_cb_function)(MPI_Count count, MPI_T_event_registration event_registration, int source_index, MPI_T_cb_safety cb_safety, void *user_data);
 
 /* MPI global variables */
-extern MPI_Fint * MPI_F_STATUS_IGNORE;
-extern MPI_Fint * MPI_F_STATUSES_IGNORE;
-extern MPI_F08_status * MPI_F08_STATUS_IGNORE;
-extern MPI_F08_status * MPI_F08_STATUSES_IGNORE;
+extern MPI_Fint* MPI_F_STATUS_IGNORE;
+extern MPI_Fint* MPI_F_STATUSES_IGNORE;
+extern MPI_F08_status* MPI_F08_STATUS_IGNORE;
+extern MPI_F08_status* MPI_F08_STATUSES_IGNORE;
 
 /* MPI functions */
 int MPI_Abort(MPI_Comm comm, int errorcode);
