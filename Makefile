@@ -34,17 +34,30 @@ endif
 LIBLINK = $(subst .$(VERSION),,$(LIBFILE))
 
 ifndef CFLAGS
-CFLAGS = -Wall -Wextra -pedantic -Wno-unused-parameter
+  cc_std = c89
+  cc_version := $(shell $(CC) --version)
+  cc_is_gnu  := $(if $(findstring Free Software Foundation,$(cc_version)),1)
+  ifdef cc_is_gnu
+    CFLAGS  = $(if $(cc_std),-std=$(cc_std))
+    CFLAGS += -pedantic -Wall -Wextra
+    CFLAGS += -Wno-unused-parameter
+    CFLAGS += -Wno-unreachable-code-return
+  else
+    CFLAGS  = $(if $(cc_std),-std=$(cc_std))
+    CFLAGS += -pedantic -Weverything
+    CFLAGS += -Wno-unused-parameter
+    CFLAGS += -Wno-unreachable-code-return
+  endif
 endif
 
 .SECONDEXPANSION: # to expand $$(@D)/.DIR
 
-$(BUILD)/mpicc:  CC := CC
-$(BUILD)/mpicc:  cc := cc
-$(BUILD)/mpicc:  op := cc
-$(BUILD)/mpicxx: CC := CXX
-$(BUILD)/mpicxx: cc := c++
-$(BUILD)/mpicxx: op := cxx
+$(BUILD)/mpicc:  override CC := CC
+$(BUILD)/mpicc:  override cc := cc
+$(BUILD)/mpicc:  override op := cc
+$(BUILD)/mpicxx: override CC := CXX
+$(BUILD)/mpicxx: override cc := c++
+$(BUILD)/mpicxx: override op := cxx
 $(BUILD)/mpic%: mpicc.in | $$(@D)/.DIR
 	cp $< $@
 	$(SED_I) -e 's:@includedir@:$(abspath $(PREFIX))/$(INCDIR):' $@
