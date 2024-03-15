@@ -577,10 +577,18 @@ typedef void (MPI_T_event_free_cb_function)(MPI_T_event_registration event_regis
 typedef void (MPI_T_event_dropped_cb_function)(MPI_Count count, MPI_T_event_registration event_registration, int source_index, MPI_T_cb_safety cb_safety, void *user_data);
 
 /* MPI global variables */
-extern MPI_Fint* MPI_F_STATUS_IGNORE;
-extern MPI_Fint* MPI_F_STATUSES_IGNORE;
-extern MPI_F08_status* MPI_F08_STATUS_IGNORE;
-extern MPI_F08_status* MPI_F08_STATUSES_IGNORE;
+extern void*                           MPIX_F_BOTTOM;
+extern void*                           MPIX_F_IN_PLACE;
+extern void*                           MPIX_F_BUFFER_AUTOMATIC;
+extern char**                          MPIX_F_ARGV_NULL;
+extern char***                         MPIX_F_ARGVS_NULL;
+extern MPI_Fint*                       MPIX_F_ERRCODES_IGNORE;
+extern MPI_Fint*                       MPI_F_STATUS_IGNORE;
+extern MPI_Fint*                       MPI_F_STATUSES_IGNORE;
+extern MPI_F08_status*                 MPI_F08_STATUS_IGNORE;
+extern MPI_F08_status*                 MPI_F08_STATUSES_IGNORE;
+extern MPI_Fint*                       MPIX_F_UNWEIGHTED;
+extern MPI_Fint*                       MPIX_F_WEIGHTS_EMPTY;
 
 /* MPI functions */
 int MPI_Abort(MPI_Comm comm, int errorcode);
