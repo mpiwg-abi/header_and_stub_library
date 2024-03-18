@@ -511,10 +511,10 @@ typedef struct MPI_T_event_instance_t* MPI_T_event_instance;
 #define MPI_T_PVAR_ALL_HANDLES         ((MPI_T_pvar_handle)1)
 
 typedef enum  MPI_T_cb_safety {
-    MPI_T_CB_REQUIRE_NONE              = 1,
-    MPI_T_CB_REQUIRE_MPI_RESTRICTED    = 2,
+    MPI_T_CB_REQUIRE_NONE              = 0,
+    MPI_T_CB_REQUIRE_MPI_RESTRICTED    = 1,
     MPI_T_CB_REQUIRE_THREAD_SAFE       = 3,
-    MPI_T_CB_REQUIRE_ASYNC_SIGNAL_SAFE = 4
+    MPI_T_CB_REQUIRE_ASYNC_SIGNAL_SAFE = 7
 } MPI_T_cb_safety;
 
 typedef enum MPI_T_source_order {
@@ -523,15 +523,15 @@ typedef enum MPI_T_source_order {
 } MPI_T_source_order;
 
 enum {
-    MPI_T_VERBOSITY_USER_BASIC         = 1,
-    MPI_T_VERBOSITY_USER_DETAIL        = 2,
-    MPI_T_VERBOSITY_USER_ALL           = 3,
-    MPI_T_VERBOSITY_TUNER_BASIC        = 4,
-    MPI_T_VERBOSITY_TUNER_DETAIL       = 5,
-    MPI_T_VERBOSITY_TUNER_ALL          = 6,
-    MPI_T_VERBOSITY_MPIDEV_BASIC       = 7,
-    MPI_T_VERBOSITY_MPIDEV_DETAIL      = 8,
-    MPI_T_VERBOSITY_MPIDEV_ALL         = 9
+    MPI_T_VERBOSITY_USER_BASIC         = 0x09,
+    MPI_T_VERBOSITY_USER_DETAIL        = 0x0a,
+    MPI_T_VERBOSITY_USER_ALL           = 0x0c,
+    MPI_T_VERBOSITY_TUNER_BASIC        = 0x11,
+    MPI_T_VERBOSITY_TUNER_DETAIL       = 0x12,
+    MPI_T_VERBOSITY_TUNER_ALL          = 0x14,
+    MPI_T_VERBOSITY_MPIDEV_BASIC       = 0x21,
+    MPI_T_VERBOSITY_MPIDEV_DETAIL      = 0x22,
+    MPI_T_VERBOSITY_MPIDEV_ALL         = 0x24
 };
 
 enum {
