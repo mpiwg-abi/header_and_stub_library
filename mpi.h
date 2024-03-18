@@ -13,9 +13,6 @@ extern "C" {
 #define MPI_VERSION    4
 #define MPI_SUBVERSION 2
 
-#define MPI_ABI_VERSION    1
-#define MPI_ABI_SUBVERSION 0
-
 /* MPI_Aint is defined to be intptr_t (or equivalent to it, if compiler support is absent).
  * The only acceptable alternative to intptr_t is the C89 type equivalent to it. */
 #if !defined(MPI_ABI_Aint)
