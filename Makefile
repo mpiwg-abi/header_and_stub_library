@@ -58,7 +58,7 @@ $(BUILD)/mpicc:  override op := cc
 $(BUILD)/mpicxx: override CC := CXX
 $(BUILD)/mpicxx: override cc := c++
 $(BUILD)/mpicxx: override op := cxx
-$(BUILD)/mpic%: mpicc.in | $$(@D)/.DIR
+$(BUILD)/mpicc $(BUILD)/mpicxx : mpicc.in | $$(@D)/.DIR
 	cp $< $@
 	$(SED_I) -e 's:@includedir@:$(abspath $(PREFIX))/$(INCDIR):' $@
 	$(SED_I) -e 's:@libdir@:$(abspath $(PREFIX))/$(LIBDIR):' $@
