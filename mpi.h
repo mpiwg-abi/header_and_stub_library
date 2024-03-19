@@ -161,7 +161,6 @@ typedef struct MPI_ABI_Datatype* MPI_Datatype;
 #define MPI_UINT64_T                   ((MPI_Datatype)0x00000259)
 #define MPIX_LOGICAL1                  ((MPI_Datatype)0x000002c0)
 #define MPI_INTEGER1                   ((MPI_Datatype)0x000002c1)
-#define MPIX_REAL1                     ((MPI_Datatype)0x000002c2)
 #define MPI_CHARACTER                  ((MPI_Datatype)0x000002c3)
 #define MPIX_LOGICAL2                  ((MPI_Datatype)0x000002c8)
 #define MPI_INTEGER2                   ((MPI_Datatype)0x000002c9)
