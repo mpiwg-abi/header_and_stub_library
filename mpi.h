@@ -49,7 +49,10 @@ typedef struct {
     int MPI_SOURCE;
     int MPI_TAG;
     int MPI_ERROR;
-    int MPI_internal[5];
+    union {
+      int MPI_internal_as_int[5];
+      /* implementation-defined representation */
+    } MPI_internal;
 } MPI_Status;
 
 typedef struct MPI_ABI_Op* MPI_Op;
@@ -192,7 +195,10 @@ typedef struct {
   MPI_Fint MPI_SOURCE;
   MPI_Fint MPI_TAG;
   MPI_Fint MPI_ERROR;
-  MPI_Fint MPI_internal[5];
+  union {
+    MPI_Fint MPI_internal_as_MPI_Fint[5];
+    /* implementation-defined representation */
+  } MPI_internal;
 } MPI_F08_status;
 
 /* Error Classes */
