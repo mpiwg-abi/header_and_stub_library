@@ -433,20 +433,20 @@ enum {
     MPI_KEYVAL_INVALID                 = 0,
 
     /* Communicator */
-    MPI_TAG_UB                         = -51,
-    MPI_IO                             = -52,
-    MPI_HOST                           = -53, /* deprecated: MPI-4.1 */
-    MPI_WTIME_IS_GLOBAL                = -54,
-    MPI_UNIVERSE_SIZE                  = -55,
-    MPI_APPNUM                         = -56,
-    MPI_LASTUSEDCODE                   = -57,
+    MPI_TAG_UB                         = 501,
+    MPI_IO                             = 502,
+    MPI_HOST                           = 503, /* deprecated: MPI-4.1 */
+    MPI_WTIME_IS_GLOBAL                = 504,
+    MPI_UNIVERSE_SIZE                  = 505,
+    MPI_APPNUM                         = 506,
+    MPI_LASTUSEDCODE                   = 507,
 
     /* Window */
-    MPI_WIN_BASE                       = -61,
-    MPI_WIN_DISP_UNIT                  = -62,
-    MPI_WIN_SIZE                       = -63,
-    MPI_WIN_CREATE_FLAVOR              = -64,
-    MPI_WIN_MODEL                      = -65
+    MPI_WIN_BASE                       = 601,
+    MPI_WIN_DISP_UNIT                  = 602,
+    MPI_WIN_SIZE                       = 603,
+    MPI_WIN_CREATE_FLAVOR              = 604,
+    MPI_WIN_MODEL                      = 605
 };
 
 typedef void (MPI_User_function)(void *invec, void *inoutvec, int *len, MPI_Datatype *datatype);
