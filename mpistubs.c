@@ -8,6 +8,8 @@ MPI_F08_status * MPI_F08_STATUS_IGNORE = NULL;
 MPI_F08_status * MPI_F08_STATUSES_IGNORE = NULL;
 
 /* MPI functions */
+int MPI_Abi_get_info(MPI_Info *info) { abort(); return 0; }
+int MPI_Abi_get_version(int *abi_major, int *abi_minor) { abort(); return 0; }
 int MPI_Abort(MPI_Comm comm, int errorcode) { abort(); return 0; }
 int MPI_Accumulate(const void *origin_addr, int origin_count, MPI_Datatype origin_datatype, int target_rank, MPI_Aint target_disp, int target_count, MPI_Datatype target_datatype, MPI_Op op, MPI_Win win) { abort(); return 0; }
 int MPI_Accumulate_c(const void *origin_addr, MPI_Count origin_count, MPI_Datatype origin_datatype, int target_rank, MPI_Aint target_disp, MPI_Count target_count, MPI_Datatype target_datatype, MPI_Op op, MPI_Win win) { abort(); return 0; }
@@ -676,6 +678,8 @@ int MPI_T_source_get_num(int *num_sources) { abort(); return 0; }
 int MPI_T_source_get_timestamp(int source_index, MPI_Count *timestamp) { abort(); return 0; }
 
 /* PMPI functions */
+int PMPI_Abi_get_info(MPI_Info *info) { abort(); return 0; }
+int PMPI_Abi_get_version(int *abi_major, int *abi_minor) { abort(); return 0; }
 int PMPI_Abort(MPI_Comm comm, int errorcode) { abort(); return 0; }
 int PMPI_Accumulate(const void *origin_addr, int origin_count, MPI_Datatype origin_datatype, int target_rank, MPI_Aint target_disp, int target_count, MPI_Datatype target_datatype, MPI_Op op, MPI_Win win) { abort(); return 0; }
 int PMPI_Accumulate_c(const void *origin_addr, MPI_Count origin_count, MPI_Datatype origin_datatype, int target_rank, MPI_Aint target_disp, MPI_Count target_count, MPI_Datatype target_datatype, MPI_Op op, MPI_Win win) { abort(); return 0; }
