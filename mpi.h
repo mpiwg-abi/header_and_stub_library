@@ -1221,6 +1221,10 @@ MPI_Datatype MPI_Type_f2c(MPI_Fint datatype);
 MPI_Fint MPI_Win_c2f(MPI_Win win);
 MPI_Win MPI_Win_f2c(MPI_Fint win);
 
+int MPI_Abi_set_fortran_info(MPI_Info info);
+int MPI_Abi_get_fortran_info(MPI_Info *info);
+int MPI_Abi_set_fortran_booleans(int logical_size, void *logical_true, void *logical_false);
+
 /* MPI_T functions */
 int MPI_T_category_changed(int *update_number);
 int MPI_T_category_get_categories(int cat_index, int len, int indices[]);
@@ -1913,6 +1917,10 @@ MPI_Fint PMPI_Type_c2f(MPI_Datatype datatype);
 MPI_Datatype PMPI_Type_f2c(MPI_Fint datatype);
 MPI_Fint PMPI_Win_c2f(MPI_Win win);
 MPI_Win PMPI_Win_f2c(MPI_Fint win);
+
+int PMPI_Abi_set_fortran_info(MPI_Info info);
+int PMPI_Abi_get_fortran_info(MPI_Info *info);
+int PMPI_Abi_set_fortran_booleans(int logical_size, void *logical_true, void *logical_false);
 
 /* PMPI_T functions */
 int PMPI_T_category_changed(int *update_number);

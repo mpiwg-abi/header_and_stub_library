@@ -647,6 +647,10 @@ MPI_Datatype MPI_Type_f2c(MPI_Fint datatype) { abort(); return NULL; }
 MPI_Fint MPI_Win_c2f(MPI_Win win) { abort(); return 0; }
 MPI_Win MPI_Win_f2c(MPI_Fint win) { abort(); return NULL; }
 
+int MPI_Abi_get_fortran_info(MPI_Info *info) { abort(); return 0; }
+int MPI_Abi_set_fortran_info(MPI_Info info) { abort(); return 0; }
+int MPI_Abi_set_fortran_booleans(int logical_size, void *logical_true, void *logical_false) { abort(); return 0; }
+
 /* MPI_T functions */
 int MPI_T_category_changed(int *update_number) { abort(); return 0; }
 int MPI_T_category_get_categories(int cat_index, int len, int indices[]) { abort(); return 0; }
@@ -1339,6 +1343,10 @@ MPI_Fint PMPI_Type_c2f(MPI_Datatype datatype) { abort(); return 0; }
 MPI_Datatype PMPI_Type_f2c(MPI_Fint datatype) { abort(); return NULL; }
 MPI_Fint PMPI_Win_c2f(MPI_Win win) { abort(); return 0; }
 MPI_Win PMPI_Win_f2c(MPI_Fint win) { abort(); return NULL; }
+
+int PMPI_Abi_get_fortran_info(MPI_Info *info) { abort(); return 0; }
+int PMPI_Abi_set_fortran_info(MPI_Info info) { abort(); return 0; }
+int PMPI_Abi_set_fortran_booleans(int logical_size, void *logical_true, void *logical_false) { abort(); return 0; }
 
 /* PMPI_T functions */
 int PMPI_T_category_changed(int *update_number) { abort(); return 0; }
